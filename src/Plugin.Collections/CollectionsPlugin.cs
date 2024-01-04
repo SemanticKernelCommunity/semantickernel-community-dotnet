@@ -86,6 +86,14 @@ public sealed class CollectionPlugin
         return Task.FromResult(collection.GetValue(index)?.ToString());
     }
 
+    [KernelFunction, Description("Inverts the order of the items in a collection of strings")]
+    public Task<string[]> ReverseAsync(
+               [Description("String items collection")] string[] collection,
+               CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(collection.Reverse().ToArray());
+    }
+
     [KernelFunction, Description("Returns the number of elements in a strings")]
     public Task<int> CountAsync(
             [Description("String items collection")] string[] collection,

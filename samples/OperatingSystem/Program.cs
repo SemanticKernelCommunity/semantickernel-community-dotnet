@@ -9,8 +9,8 @@ SampleConfiguration.Initialize();
 // await PluginRunner.RunSampleAsync("Get csproj files from the directory '.'");
 // await PluginRunner.RunSampleAsync("Get first files from the directory '.'");
 // await PluginRunner.RunSampleAsync("Get first files ordered from the directory '.'");
-// await PluginRunner.RunSampleAsync("Get first file in descending order from the directory '.'");
-// await PluginRunner.RunSampleAsync("Get last file in ascending order from the directory '.'");
+await PluginRunner.RunSampleAsync("Get first file in descending order from the directory '.'");
+await PluginRunner.RunSampleAsync("Get last file in ascending order from the directory '.'");
 
 // await PluginRunner.RunSampleAsync("Merge list files from the directory '.' and the directory '..");
 // await PluginRunner.RunSampleAsync("Count number of files in the directory '.'");
@@ -21,4 +21,4 @@ SampleConfiguration.Initialize();
 
 // await PluginRunner.RunSampleAsync("Retrieves the first three elements of the files in the '.' directory, disregarding the first 2 elements.");
 
-await PluginRunner.RunSampleAsync("Retrieves the element 5 from the files in the '.' directory");
+await PluginRunner.RunSampleAsync("Reverse the files list from the directory '.'");
