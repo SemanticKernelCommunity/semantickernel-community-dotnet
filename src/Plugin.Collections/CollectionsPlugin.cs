@@ -50,14 +50,6 @@ public sealed class CollectionPlugin
         return Task.FromResult(collectionFirst.Concat(collectionSecond).ToArray());
     }
 
-    [KernelFunction, Description("Returns first object item in a collection of objects")]
-    public Task<object?> FirstObjectItemAsync(
-        [Description("Object items collection")] object[] collection,
-        CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collection.FirstOrDefault());
-    }
-
      [KernelFunction, Description("Returns the number of elements in a strings")]
     public Task<int> CountAsync(
              [Description("String items collection")] string[] collection,
