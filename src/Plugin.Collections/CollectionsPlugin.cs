@@ -9,6 +9,15 @@ namespace Community.SemanticKernel.Plugins.Collections;
 public sealed class CollectionPlugin
 {
 
+    [KernelFunction, Description("Append a string item into a collection of strings")]
+    public Task<string[]> AppendStringItemAsync(
+        [Description("String items collection")] string[] collection,
+        [Description("String item to append")] string item,
+        CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(collection.Append(item).ToArray());
+    }
+
     [KernelFunction, Description("Returns first string item in a collection of strings")]
     public Task<string?> FirstStringItemAsync(
         [Description("String items collection")] string[] collection,

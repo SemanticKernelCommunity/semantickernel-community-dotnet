@@ -12,6 +12,9 @@ SampleConfiguration.Initialize();
 // await PluginRunner.RunSampleAsync("Get first file in descending order from the directory '.'");
 // await PluginRunner.RunSampleAsync("Get last file in ascending order from the directory '.'");
 
-await PluginRunner.RunSampleAsync("Merge list files from the directory '.' and the directory '..");
-await PluginRunner.RunSampleAsync("Count number of files in the directory '.'");
+// await PluginRunner.RunSampleAsync("Merge list files from the directory '.' and the directory '..");
+// await PluginRunner.RunSampleAsync("Count number of files in the directory '.'");
+
+await PluginRunner.RunSampleAsync("Append XXX item to the list of files in the directory '.'");
+
 
