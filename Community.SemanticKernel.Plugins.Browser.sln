@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0B6DF53D-2F0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.SemanticKernel.Plugins.Browser", "src\Plugin.Browser\Community.SemanticKernel.Plugins.Browser.csproj", "{A3F5E9E4-D768-4AED-9ECC-5421B1C5C0B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.SemanticKernel.Plugins.OperatingSystem", "src\Plugin.OperatingSystem\Community.SemanticKernel.Plugins.OperatingSystem\Community.SemanticKernel.Plugins.OperatingSystem.csproj", "{2406CFD7-B91B-4302-A308-DF9185E14ADE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.SemanticKernel.Plugins.OperatingSystem", "src\Plugin.OperatingSystem\Community.SemanticKernel.Plugins.OperatingSystem.csproj", "{2406CFD7-B91B-4302-A308-DF9185E14ADE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{C2317DDA-D820-4C74-B097-E7E91854ED2D}"
 EndProject
