@@ -59,6 +59,24 @@ public sealed class CollectionPlugin
         return Task.FromResult(collectionFirst.Concat(collectionSecond).ToArray());
     }
 
+    [KernelFunction, Description("Returns a specified number of continuous item from the start of a collection of strings")]
+    public Task<string[]> TakeAsync(
+        [Description("String items collection")] string[] collection,
+        [Description("The number of items to return")] int count,
+        CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(collection.Take(count).ToArray());
+    }
+
+    [KernelFunction, Description("Bypasses a specified number of elements in a collection of strings")]
+    public Task<string[]> SkipAsync(
+        [Description("String items collection")] string[] collection,
+        [Description("The number of items to skip")] int count,
+        CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(collection.Skip(count).ToArray());
+    }
+
      [KernelFunction, Description("Returns the number of elements in a strings")]
     public Task<int> CountAsync(
              [Description("String items collection")] string[] collection,

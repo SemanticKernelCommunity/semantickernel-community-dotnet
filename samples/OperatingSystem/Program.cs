@@ -15,6 +15,8 @@ SampleConfiguration.Initialize();
 // await PluginRunner.RunSampleAsync("Merge list files from the directory '.' and the directory '..");
 // await PluginRunner.RunSampleAsync("Count number of files in the directory '.'");
 
-await PluginRunner.RunSampleAsync("Append XXX item to the list of files in the directory '.'");
+// await PluginRunner.RunSampleAsync("Append XXX item to the list of files in the directory '.'");
 
+// await PluginRunner.RunSampleAsync("Get the first three items from the directory '.'");
 
+await PluginRunner.RunSampleAsync("Retrieves the first three elements of the files in the '.' directory, disregarding the first 2 elements.");
