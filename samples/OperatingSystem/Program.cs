@@ -19,4 +19,6 @@ SampleConfiguration.Initialize();
 
 // await PluginRunner.RunSampleAsync("Get the first three items from the directory '.'");
 
-await PluginRunner.RunSampleAsync("Retrieves the first three elements of the files in the '.' directory, disregarding the first 2 elements.");
+// await PluginRunner.RunSampleAsync("Retrieves the first three elements of the files in the '.' directory, disregarding the first 2 elements.");
+
+await PluginRunner.RunSampleAsync("Retrieves the element 5 from the files in the '.' directory");

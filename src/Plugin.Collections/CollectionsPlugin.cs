@@ -77,10 +77,19 @@ public sealed class CollectionPlugin
         return Task.FromResult(collection.Skip(count).ToArray());
     }
 
-     [KernelFunction, Description("Returns the number of elements in a strings")]
+    [KernelFunction, Description("Gets the value at the specified position in a collection of strings")]
+    public Task<string?> GetValueAsync(
+            [Description("String items collection")] string[] collection,
+            [Description("the position of the collection item to get.")] int index,
+            CancellationToken cancellationToken = default)
+    {
+        return Task.FromResult(collection.GetValue(index)?.ToString());
+    }
+
+    [KernelFunction, Description("Returns the number of elements in a strings")]
     public Task<int> CountAsync(
-             [Description("String items collection")] string[] collection,
-             CancellationToken cancellationToken = default)
+            [Description("String items collection")] string[] collection,
+            CancellationToken cancellationToken = default)
     {
         return Task.FromResult(collection.Count());
     }
