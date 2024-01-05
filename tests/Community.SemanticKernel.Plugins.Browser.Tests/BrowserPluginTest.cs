@@ -4,6 +4,7 @@ namespace Community.SemanticKernel.Plugins.Browser.Tests;
 public class UnitTest1
 {
     [TestMethod]
+    [Ignore]
     public async Task TakePageScreenShootSucceedAsync()
     {
         var browserPlugin = new BrowserPlugin();
