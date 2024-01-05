@@ -29,4 +29,8 @@
     <UserSecretsId>a5f42780-cbfe-4d6d-a490-f52a4395ae85</UserSecretsId>
   </PropertyGroup>
 
+
+  <PropertyGroup>
+    <NoWarn>SKEXP0060</NoWarn>
+  </PropertyGroup>
 </Project>
