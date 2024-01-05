@@ -1,5 +1,6 @@
 ﻿using Community.SemanticKernel.Plugins.Collections;
 using Community.SemanticKernel.Plugins.OperatingSystem;
+using HandlebarsDotNet.Helpers;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Planning.Handlebars;
 
@@ -9,10 +10,10 @@ public static class PluginRunner
 
     public static async Task RunSampleAsync(string goal, bool shouldPrintPrompt = false, params string[] pluginDirectoryNames)
     {
-        string apiKey = SampleConfiguration.AzureOpenAI.ApiKey;
-        string chatDeploymentName = SampleConfiguration.AzureOpenAI.ChatDeploymentName;
-        string chatModelId = SampleConfiguration.AzureOpenAI.ChatModelId;
-        string endpoint = SampleConfiguration.AzureOpenAI.Endpoint;
+        string apiKey = SampleConfiguration.AzureOpenAI.ApiKey ?? throw new Exception("AzureOpenAI ApiKey is not configured");
+        string chatDeploymentName = SampleConfiguration.AzureOpenAI.ChatDeploymentName ?? throw new Exception("AzureOpenAI ChatDeploymentName is not configured");
+        string chatModelId = SampleConfiguration.AzureOpenAI.ChatModelId ?? throw new Exception("AzureOpenAI ChatModelId is not configured");
+        string endpoint = SampleConfiguration.AzureOpenAI.Endpoint ?? throw new Exception("AzureOpenAI Endpoint is not configured");
 
         if (apiKey == null || chatDeploymentName == null || chatModelId == null || endpoint == null)
         {
@@ -49,6 +50,7 @@ public static class PluginRunner
         // Create the plan
         var plan = await planner.CreatePlanAsync(kernel, goal);
 
+        
         // Print the prompt template
         if (shouldPrintPrompt && plan.Prompt is not null)
         {
