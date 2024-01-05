@@ -9,96 +9,145 @@ namespace Community.SemanticKernel.Plugins.Collections;
 public sealed class CollectionPlugin
 {
 
-    [KernelFunction, Description("Append a string item into a collection of strings")]
-    public Task<string[]> AppendStringItemAsync(
+    /// <summary>
+    /// Append a string item into a collection of strings.
+    /// </summary>
+    /// <param name="collection">"String items collection"</param>
+    /// <param name="item">"String item to append"</param>
+    /// <returns>A new collection that ends with the item.</returns>
+    [KernelFunction, Description("Append a string item into a collection of strings.")]
+    public string[] AppendStringItem(
         [Description("String items collection")] string[] collection,
-        [Description("String item to append")] string item,
-        CancellationToken cancellationToken = default)
+        [Description("String item to append")] string item)
     {
-        return Task.FromResult(collection.Append(item).ToArray());
+        return collection.Append(item).ToArray();
     }
 
-    [KernelFunction, Description("Returns first string item in a collection of strings")]
-    public Task<string?> FirstStringItemAsync(
+    /// <summary>
+    /// Returns first string item in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <returns>default if source is empty, otherwise the first item in the collection.</returns>
+    [KernelFunction, Description("Returns first string item in a collection of strings.")]
+    public string? FirstStringItem(
+        [Description("String items collection")] string[] collection)
+    {
+        return collection.FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Returns last string item in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <returns>default if source is empty, otherwise the last item in the collection.</returns>
+    [KernelFunction, Description("Returns last string item in a collection of strings.")]
+    public string? LastStringItem(
+       [Description("String items collection")] string[] collection)
+    {
+        return collection.LastOrDefault();
+    }
+
+    /// <summary>
+    /// Sorts a collection of strings in ascending order.
+    /// </summary>
+    /// <param name="collection">"String items collection"</param>
+    /// <returns>Collection sorted in ascending order.</returns>
+    [KernelFunction, Description("Sorts a collection of strings in ascending order.")]
+    public string[] Order(
+           [Description("String items collection")] string[] collection)
+    {
+        return collection.Order().ToArray();
+    }
+
+    /// <summary>
+    /// Sorts a collection of strings in descending order.
+    /// </summary>
+    /// <param name="collection">"String items collection"</param>
+    /// <returns>Collection sorted in descending order.</returns>
+    [KernelFunction, Description("Sorts a collection of strings in descending order.")]
+    public string[] OrderDescending(
+           [Description("String items collection")] string[] collection)
+    {
+        return collection.OrderDescending().ToArray();
+    }
+
+    /// <summary>
+    /// Concats two collections of strings.
+    /// </summary>
+    /// <param name="firstCollection">"First string items collection"</param>
+    /// <param name="secondCollection">"Second string items collection"</param>
+    /// <returns>A new collection containing the items of the two input collections.</returns>
+    [KernelFunction, Description("Concats two collections of strings.")]
+    public string[] Concat(
+             [Description("First string items collection")] string[] firstCollection,
+             [Description("Second string items collection")] string[] secondCollection)
+    {
+        return firstCollection.Concat(secondCollection).ToArray();
+    }
+
+    /// <summary>
+    /// Returns a specified number of continuous item from the start of a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <param name="count">The number of items to return</param>
+    /// <returns>A new collection that contains the specified number of elements from the start of the input sequence.</returns>
+    [KernelFunction, Description("Returns a specified number of continuous item from the start of a collection of strings.")]
+    public string[] Take(
         [Description("String items collection")] string[] collection,
-        CancellationToken cancellationToken = default)
+        [Description("The number of items to return")] int count)
     {
-        return Task.FromResult(collection.FirstOrDefault());
+        return collection.Take(count).ToArray();
     }
 
-    [KernelFunction, Description("Returns last string item in a collection of strings")]
-    public Task<string?> LastStringItemAsync(
-       [Description("String items collection")] string[] collection,
-       CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collection.LastOrDefault());
-    }
-
-    [KernelFunction, Description("Sorts a collection of strings in ascending order")]
-    public Task<string[]> OrderAsync(
-           [Description("String items collection")] string[] collection,
-           CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collection.Order().ToArray());
-    }
-
-    [KernelFunction, Description("Sorts a collection of strings in descending order")]
-    public Task<string[]> OrderDescAsync(
-           [Description("String items collection")] string[] collection,
-           CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collection.OrderDescending().ToArray());
-    }
-
-    [KernelFunction, Description("Concats two collections of strings")]
-    public Task<string[]> ConcatAsync(
-             [Description("First string items collection")] string[] collectionFirst,
-             [Description("Second string items collection")] string[] collectionSecond,
-             CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collectionFirst.Concat(collectionSecond).ToArray());
-    }
-
-    [KernelFunction, Description("Returns a specified number of continuous item from the start of a collection of strings")]
-    public Task<string[]> TakeAsync(
+    /// <summary>
+    /// Bypasses a specified number of elements in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <param name="count">The number of items to skip</param>
+    /// <returns>A new collection that contains the items that occur after the specified index in the input collection.</returns>
+    [KernelFunction, Description("Bypasses a specified number of elements in a collection of strings.")]
+    public string[] Skip(
         [Description("String items collection")] string[] collection,
-        [Description("The number of items to return")] int count,
-        CancellationToken cancellationToken = default)
+        [Description("The number of items to skip")] int count)
     {
-        return Task.FromResult(collection.Take(count).ToArray());
+        return collection.Skip(count).ToArray();
     }
 
-    [KernelFunction, Description("Bypasses a specified number of elements in a collection of strings")]
-    public Task<string[]> SkipAsync(
-        [Description("String items collection")] string[] collection,
-        [Description("The number of items to skip")] int count,
-        CancellationToken cancellationToken = default)
-    {
-        return Task.FromResult(collection.Skip(count).ToArray());
-    }
-
-    [KernelFunction, Description("Gets the value at the specified position in a collection of strings")]
-    public Task<string?> GetValueAsync(
+    /// <summary>
+    /// Gets the value at the specified position in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <param name="index">The position of the collection item to get</param>
+    /// <returns>The value at the specified index</returns>
+    [KernelFunction, Description("Gets the value at the specified position in a collection of strings.")]
+    public string? GetValueAsync(
             [Description("String items collection")] string[] collection,
-            [Description("the position of the collection item to get.")] int index,
-            CancellationToken cancellationToken = default)
+            [Description("The position of the collection item to get")] int index)
     {
-        return Task.FromResult(collection.GetValue(index)?.ToString());
+        return collection.GetValue(index)?.ToString();
     }
 
-    [KernelFunction, Description("Inverts the order of the items in a collection of strings")]
-    public Task<string[]> ReverseAsync(
-               [Description("String items collection")] string[] collection,
-               CancellationToken cancellationToken = default)
+    /// <summary>
+    /// Inverts the order of the items in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <returns>A new collection with the input collection in a reverse order</returns>
+    [KernelFunction, Description("Inverts the order of the items in a collection of strings.")]
+    public string[] Reverse(
+               [Description("String items collection")] string[] collection)
     {
-        return Task.FromResult(collection.Reverse().ToArray());
+        return collection.Reverse().ToArray();
     }
 
-    [KernelFunction, Description("Returns the number of elements in a strings")]
-    public Task<int> CountAsync(
-            [Description("String items collection")] string[] collection,
-            CancellationToken cancellationToken = default)
+    /// <summary>
+    /// Returns the number of items in a collection of strings.
+    /// </summary>
+    /// <param name="collection">String items collection</param>
+    /// <returns>The number of items in the input collection</returns>
+    [KernelFunction, Description("Returns the number of items in a collection of strings.")]
+    public int Count(
+            [Description("String items collection")] string[] collection)
     {
-        return Task.FromResult(collection.Count());
+        return collection.Count();
     }
 }
