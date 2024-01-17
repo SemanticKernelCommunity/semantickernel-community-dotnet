@@ -43,14 +43,6 @@ public class SampleConfiguration
         return s_instance._configRoot.GetSection(caller).Get<T>() ??
             throw new KeyNotFoundException($"Could not find configuration section {caller}");
     }
-    
-// dotnet user-secrets set "AzureOpenAI:ServiceId" "..."
-// dotnet user-secrets set "AzureOpenAI:DeploymentName" "test-seb"
-// dotnet user-secrets set "AzureOpenAI:ModelId" "gpt-35-turbo"
-// dotnet user-secrets set "AzureOpenAI:ChatDeploymentName" "gpt-4"
-// dotnet user-secrets set "AzureOpenAI:ChatModelId" "gpt-4"
-// dotnet user-secrets set "AzureOpenAI:Endpoint" "https://davi-francecentral.openai.azure.com/"
-// dotnet user-secrets set "AzureOpenAI:ApiKey" "7b7f3e82a70f41ebacae70f6d9a9a405"
 
     public class AzureOpenAIConfig
     {
